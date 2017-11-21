@@ -5,6 +5,7 @@ def main():
 
     #Esto abre una imagen que esté dentro de nuestro proyecto
     imagen = Image.open('imagen.jpg')
+    imagen_2 = Image.open('imagen_2.jpg')
     #Esta linea hace que muestre la foto cuando se ejecute el programa
     imagen.show()
 
@@ -36,6 +37,9 @@ def main():
     new_imagen = ImageEnhance.Sharpness(imagen).enhance(-4)
     new_imagen.save("imagen_8.jpg")
 
+    # Devuelve el valor absoluto de la diferencia píxel por píxel entre las dos imágenes.
+    new_imagen = ImageChops.difference(imagen, imagen_2)
+    new_imagen.save('imagen_9.jpg')
 
 
 if __name__ == "__main__":
